@@ -8,23 +8,59 @@ class PaketModel extends CI_Model
 
 	public function get()
 	{
-		$this->db->select('packets.*, kategori.nama as kategori_nama');
+		$this->db->select('packets.*, kategori.nama as kategori_nama, 
+                       (SELECT packet_images.image_name 
+                        FROM packet_images 
+                        WHERE packet_images.packet_id = packets.id_packet 
+                        ORDER BY packet_images.id_packet_images ASC 
+                        LIMIT 1) as first_image');
 		$this->db->from($this->table);
 		$this->db->join('kategori', 'kategori.id_kategori = packets.id_kategori', 'left');
-
 		$query = $this->db->get();
+
+		if ($query === false) {
+			// Output error message
+			$error = $this->db->error();
+			echo "Query Error: " . $error['message'];
+			return false;
+		}
+
 		return $query->result();
 	}
+
 
 	public function create($data)
 	{
 		$this->db->insert($this->table, $data);
 	}
 
+	// public function find($id_packet)
+	// {
+	// 	$this->db->where('id_packet', $id_packet);
+	// 	return $this->db->get($this->table)->row();
+	// }
+
 	public function find($id_packet)
 	{
-		$this->db->where('id_packet', $id_packet);
-		return $this->db->get($this->table)->row();
+		$this->db->select('packets.*, kategori.nama as kategori_nama, 
+                       (SELECT packet_images.image_name 
+                        FROM packet_images 
+                        WHERE packet_images.packet_id = packets.id_packet 
+                        ORDER BY packet_images.id_packet_images ASC 
+                        LIMIT 1) as first_image');
+		$this->db->from($this->table);
+		$this->db->join('kategori', 'kategori.id_kategori = packets.id_kategori', 'left');
+		$this->db->where('packets.id_packet', $id_packet);
+		$query = $this->db->get();
+
+		if ($query === false) {
+			// Output error message
+			$error = $this->db->error();
+			echo "Query Error: " . $error['message'];
+			return false;
+		}
+
+		return $query->row();
 	}
 
 	public function update($id_packet, $data)

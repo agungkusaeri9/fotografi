@@ -13,6 +13,7 @@
 						<li class="scroll-to-section"><a href="#our-classes">Classes</a></li>
 						<li class="scroll-to-section"><a href="#schedule">Schedules</a></li>
 						<li class="scroll-to-section"><a href="#contact-us">Contact</a></li>
+						<li class="scroll-to-section"><a href="<?= base_url('paket') ?>">Paket</a></li>
 						<li class="main-button"><a href="<?= base_url('login') ?>">Sign Up</a></li>
 					</ul>
 					<a class='menu-trigger'>

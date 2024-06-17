@@ -6,7 +6,7 @@
 				<h3 class="mb-0">Tambah Gambar</h3>
 			</div>
 			<div class="card-body">
-				<form action="<?= base_url('paketIMage/proses_tambah') ?>" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url('paketImage/proses_tambah') ?>" method="post" enctype="multipart/form-data">
 					<input type="number" name="id_packet" value="<?= $id_packet ?>" hidden>
 					<div class='form-group mb-3'>
 						<label for='image_name' class='mb-2'>Gambar</label>

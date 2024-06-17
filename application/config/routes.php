@@ -78,3 +78,9 @@ $route['jadwal-f'] = '_Fotografer/Jadwal';
 $route['hasil-foto-f'] = '_Fotografer/Hasil';
 
 $route['kategori'] = 'Kategori';
+
+
+// frontend
+$route['paket'] = 'PageController/paket';
+$route['paket/(:any)'] = 'PageController/detail_paket/$1';
+$route['proses-booking'] = 'PageController/proses_booking';

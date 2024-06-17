@@ -17,7 +17,6 @@ class Login extends CI_Controller
 
 	public function index()
 	{
-
 		$data = [
 			'content' => 'components/auth/login',
 			'plugin' => 'plugins/auth/login',

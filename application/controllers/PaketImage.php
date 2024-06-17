@@ -25,7 +25,6 @@ class PaketImage extends MY_Controller
 			'id_packet' => $id_packet
 		];
 
-
 		$this->load->view('layouts/app', $data);
 	}
 
