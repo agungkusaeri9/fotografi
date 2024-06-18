@@ -14,7 +14,7 @@
 		function getProfil() {
 			$.ajax({
 				type: "GET",
-				url: base_url + 'Profile/GetUserById',
+				url: base_url + 'admin/profile/GetUserById',
 				dataType: "JSON",
 				success: function(data) {
 					// console.log(data);
@@ -40,7 +40,7 @@
 
 			$.ajax({
 				type: "POST",
-				url: base_url + 'Profile/update',
+				url: base_url + 'admin/profile/update',
 				data: data,
 				contentType: false,
 				cache: false,

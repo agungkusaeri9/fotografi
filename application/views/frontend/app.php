@@ -39,12 +39,11 @@
 	?>
 	<!-- ***** Header Area End ***** -->
 
-	<?php
-	if (!empty($content)) {
-		$this->load->view($content);
-	}
-	?>
-
+	<?php if (!empty($content)) : ?>
+		<div style="min-height:800px">
+			<?php $this->load->view($content); ?>
+		</div>
+	<?php endif; ?>
 	<!-- ***** Footer Start ***** -->
 
 	<?php

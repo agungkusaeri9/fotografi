@@ -39,22 +39,19 @@ class PageController extends CI_Controller
 		$this->load->view('frontend/app', $data);
 	}
 
-	public function proses_booking()
+	public function about()
 	{
-		$input = $this->input->post();
-		$paket = $this->paket->find($input['id_packet']);
-		$total_bayar = $paket->packet_price;
 		$data = [
-			'id_user' => $this->session->userdata('id'),
-			'id_packet' => $input['id_packet'],
-			'alamat' => $input['alamat'],
-			'jumlah_pembayaran' => $input['jumlah_pembayaran'],
-			'tanggal' => $input['tanggal'],
-			'total_bayar' => $total_bayar,
-			'kode_booking' => date('Ymdhis') . rand(10, 99)
+			'content' => 'frontend/pages/about',
 		];
+		$this->load->view('frontend/app', $data);
+	}
 
-		$this->booking->create($data);
-		redirect('/');
+	public function contact()
+	{
+		$data = [
+			'content' => 'frontend/pages/contact',
+		];
+		$this->load->view('frontend/app', $data);
 	}
 }

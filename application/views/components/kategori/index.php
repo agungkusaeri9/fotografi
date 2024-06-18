@@ -5,7 +5,7 @@
 			<div class="card-header">
 				<h3 class="mb-0">Datatable</h3>
 				<p class="text-sm mb-0 mt-3">
-					<a href="<?= base_url('kategori/tambah') ?>" class="btn btn-sm btn-primary">Tambah Kategori</a>
+					<a href="<?= base_url('admin/kategori/tambah') ?>" class="btn btn-sm btn-primary">Tambah Kategori</a>
 				</p>
 			</div>
 			<div class="table-responsive py-4">
@@ -24,8 +24,8 @@
 								<td><?= $i++ ?></td>
 								<td><?= $kategori->nama ?></td>
 								<td>
-									<a href="<?= base_url('kategori/edit/')  . $kategori->id_kategori ?>" class="btn btn-sm btn-info">Edit</a>
-									<form action="<?= base_url('kategori/hapus/' . $kategori->id_kategori) ?>" method="post" class="d-inline" id="formDelete">
+									<a href="<?= base_url('admin/kategori/edit/')  . $kategori->id_kategori ?>" class="btn btn-sm btn-info">Edit</a>
+									<form action="<?= base_url('admin/kategori/hapus/' . $kategori->id_kategori) ?>" method="post" class="d-inline" id="formDelete">
 										<button class="btn btnDelete btn-sm btn-danger">Hapus</button>
 									</form>
 								</td>

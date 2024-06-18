@@ -72,6 +72,43 @@ $route['transaksi-c'] = '_Customer/Booking/transaksi';
 $route['jadwal-c'] = '_Customer/Jadwal';
 
 
+// admin
+$route['admin/dashboard'] = 'Admin/Dashboard/index';
+$route['admin/kategori'] = 'Admin/Kategori/index';
+$route['admin/kategori/tambah'] = 'Admin/Kategori/tambah';
+$route['admin/kategori/proses_tambah'] = 'Admin/Kategori/proses_tambah';
+$route['admin/kategori/edit/(:num)'] = 'Admin/Kategori/edit/$1';
+$route['admin/kategori/proses_update/(:num)'] = 'Admin/Kategori/proses_update/$1';
+$route['admin/kategori/hapus/(:num)'] = 'Admin/Kategori/hapus/$1';
+
+// paket
+$route['admin/paket'] = 'Admin/Paket/index';
+$route['admin/paket/tambah'] = 'Admin/Paket/tambah';
+$route['admin/paket/proses_tambah'] = 'Admin/Paket/proses_tambah';
+$route['admin/paket/edit/(:num)'] = 'Admin/Paket/edit/$1';
+$route['admin/paket/proses_update/(:num)'] = 'Admin/Paket/proses_update/$1';
+$route['admin/paket/hapus/(:num)'] = 'Admin/Paket/hapus/$1';
+
+// paket
+$route['admin/gambar-paket'] = 'Admin/GambarPaket/index';
+$route['admin/gambar-paket/tambah'] = 'Admin/GambarPaket/tambah';
+$route['admin/gambar-paket/proses_tambah'] = 'Admin/GambarPaket/proses_tambah';
+$route['admin/gambar-paket/hapus/(:num)'] = 'Admin/GambarPaket/hapus/$1';
+
+// booking
+$route['admin/booking'] = 'Admin/Booking/index';
+$route['admin/booking/detail/(:num)'] = 'Admin/Booking/detail/$1';
+
+// profile
+$route['admin/profile'] = 'Admin/Profile/index';
+$route['admin/profile/GetUserById'] = 'Admin/Profile/GetUserById';
+$route['admin/profile/update'] = 'Admin/Profile/update';
+
+// transaksi
+$route['admin/transaksi'] = 'Admin/Transaksi/index';
+
+
+
 
 $route['paket-f'] = '_Fotografer/Paket';
 $route['jadwal-f'] = '_Fotografer/Jadwal';
@@ -81,6 +118,13 @@ $route['kategori'] = 'Kategori';
 
 
 // frontend
+$route['about'] = 'PageController/about';
+$route['contact'] = 'PageController/contact';
+$route['paket'] = 'PageController/paket';
 $route['paket'] = 'PageController/paket';
 $route['paket/(:any)'] = 'PageController/detail_paket/$1';
 $route['proses-booking'] = 'PageController/proses_booking';
+
+$route['customer/booking'] = 'Customer/Booking/index';
+$route['customer/proses-booking'] = 'Customer/Booking/proses_booking';
+$route['customer/booking/detail/(:num)'] = 'Customer/Booking/detail/$1';

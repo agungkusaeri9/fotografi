@@ -7,7 +7,7 @@
 			</div>
 
 			<div class="card-body">
-				<form action="<?= base_url('Paket/proses_update/' . $paket->id_packet) ?>" method="post">
+				<form action="<?= base_url('admin/paket/proses_update/' . $paket->id_packet) ?>" method="post">
 					<div class='form-group mb-3'>
 						<label for='packet_name' class='mb-2'>Nama Paket</label>
 						<input type='text' name='packet_name' class='form-control <?php if (form_error('packet_name')) : ?> is-invalid <?php endif; ?>' value="<?= $paket->packet_name ?>">

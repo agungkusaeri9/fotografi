@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class PaketImage extends MY_Controller
+class GambarPaket extends MY_Controller
 {
 	public function __construct()
 	{
@@ -17,7 +17,7 @@ class PaketImage extends MY_Controller
 		$menu = $this->MenusModel->getMenu();
 		$id_packet = $this->input->get('id_packet');
 		$data = [
-			'content' => 'components/packet-image/index',
+			'content' => 'components/gambar-paket/index',
 			// 'plugin' => 'plugins/users',
 			'css' => 'css/users',
 			'menus' => fetch_menu($menu),
@@ -34,10 +34,10 @@ class PaketImage extends MY_Controller
 		$menu = $this->MenusModel->getMenu();
 		$id_packet = $this->input->get('id_packet');
 		if (empty($id_packet)) {
-			redirect('paket');
+			redirect('admin/paket');
 		}
 		$data = [
-			'content' => 'components/packet-image/tambah',
+			'content' => 'components/gambar-paket/tambah',
 			// 'plugin' => 'plugins/users',
 			'css' => 'css/users',
 			'menus' => fetch_menu($menu),
@@ -51,7 +51,7 @@ class PaketImage extends MY_Controller
 	{
 		$id_packet = $this->input->post('id_packet');
 		if (empty($id_packet)) {
-			redirect('paket');
+			redirect('admin/paket');
 		}
 		if (!empty($_FILES['image_name']['name'])) {
 			$upload = h_upload($_FILES['image_name']['name'], 'assets/img/packets', 'jpg|png|jpeg', '2048', 'image_name');
@@ -64,7 +64,7 @@ class PaketImage extends MY_Controller
 			];
 			$insert = $this->paket_image->create($data);
 			$this->session->set_flashdata('success', 'Data Gambar berhasil ditambahkan!');
-			redirect('paketImage' . '?id_packet=' . $id_packet);
+			redirect('admin/gambar-paket' . '?id_packet=' . $id_packet);
 		}
 	}
 
@@ -75,6 +75,6 @@ class PaketImage extends MY_Controller
 		unlink('./assets/img/packets/' . $image->image_name);
 		$this->paket_image->hapus($id);
 		$this->session->set_flashdata('success', 'Data Gambar berhasil dihapus!');
-		redirect('paketImage' . '?id_packet=' . $id_packet);
+		redirect('admin/gambar-paket' . '?id_packet=' . $id_packet);
 	}
 }

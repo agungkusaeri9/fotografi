@@ -11,7 +11,6 @@
 				</p>
 
 				<!-- You shall support us a little via PayPal to info@templatemo.com -->
-
 			</div>
 		</div>
 	</div>

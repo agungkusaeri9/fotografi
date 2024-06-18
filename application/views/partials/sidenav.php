@@ -22,7 +22,36 @@
 			<div class="collapse navbar-collapse" id="sidenav-collapse-main">
 				<!-- Nav items -->
 				<ul class="navbar-nav">
-					<?= $menus ?>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('admin/dashboard') ?>">
+							<i class="fas fa-tachometer-alt"></i>
+							<span class="nav-link-text">Dashboard</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('admin/kategori') ?>">
+							<i class="fas fa-tags"></i>
+							<span class="nav-link-text">Kategori Paket</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('admin/paket') ?>">
+							<i class="fas fa-box"></i>
+							<span class="nav-link-text">Paket</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('admin/booking') ?>">
+							<i class="fas fa-calendar-check"></i>
+							<span class="nav-link-text">Booking</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('admin/transaksi') ?>">
+							<i class="fas fa-calendar-check"></i>
+							<span class="nav-link-text">Transaksi</span>
+						</a>
+					</li>
 				</ul>
 				<!-- Divider -->
 				<hr class="my-3">
@@ -31,7 +60,7 @@
 				<!-- Navigation -->
 				<ul class="navbar-nav mb-md-3">
 					<li class="nav-item">
-						<a class="nav-link <?= ($this->session->userdata('menu_active') == 'profile') ? 'active' : '' ?>" href="<?= site_url('Profile') ?>">
+						<a class="nav-link <?= ($this->session->userdata('menu_active') == 'profile') ? 'active' : '' ?>" href="<?= site_url('admin/profile') ?>">
 							<i class="ni ni-circle-08"></i>
 							<span class="nav-link-text">Profile</span>
 						</a>

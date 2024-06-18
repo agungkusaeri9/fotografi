@@ -121,11 +121,16 @@ class Login extends CI_Controller
 		$this->session->set_userdata($data_session);
 		// activity_log('login', 'Telah Melakukan Login');
 
+		if ($row->role_id == 1) {
+			$redirect = base_url('admin/dashboard');
+		} else {
+			$redirect = base_url('/');
+		}
 		$response = array(
 			'type' => 'success',
 			'title' => 'Berhasil !',
 			'message' => 'Anda berhasil login, halaman ini akan di alihkan.',
-			'redirect' => base_url('dashboard'),
+			'redirect' => $redirect
 		);
 
 		return $response;
@@ -137,7 +142,7 @@ class Login extends CI_Controller
 		// activity_log('logout', 'Telah Melakukan Logout');
 
 		$this->session->sess_destroy();
-		redirect('login', 'refresh');
+		redirect('/', 'refresh');
 	}
 
 	public function create()

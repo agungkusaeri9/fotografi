@@ -7,7 +7,7 @@
 			</div>
 
 			<div class="card-body">
-				<form action="<?= base_url('Kategori/proses_update/' . $kategori->id_kategori) ?>" method="post">
+				<form action="<?= base_url('admin/kategori/proses_update/' . $kategori->id_kategori) ?>" method="post">
 					<div class='form-group mb-3'>
 						<label for='nama' class='mb-2'>Nama</label>
 						<input type='text' name='nama' class='form-control <?php if (form_error('nama')) : ?> is-invalid <?php endif; ?>' value="<?= $kategori->nama ?>">

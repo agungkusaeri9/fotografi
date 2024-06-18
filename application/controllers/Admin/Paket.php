@@ -62,7 +62,7 @@ class Paket extends MY_Controller
 			$data = $this->input->post();
 			$this->paket->create($data);
 			$this->session->set_flashdata('success', 'Data Paket berhasil ditambahkan!');
-			redirect('paket');
+			redirect('admin/paket');
 		}
 	}
 
@@ -104,7 +104,7 @@ class Paket extends MY_Controller
 			$data = $this->input->post();
 			$this->paket->update($id, $data);
 			$this->session->set_flashdata('success', 'Data Paket berhasil diupdate!');
-			redirect('paket');
+			redirect('admin/paket');
 		}
 	}
 
@@ -112,7 +112,7 @@ class Paket extends MY_Controller
 	{
 		$this->paket->hapus($id);
 		$this->session->set_flashdata('success', 'Data Paket berhasil dihapus!');
-		redirect('paket');
+		redirect('admin/paket');
 	}
 
 

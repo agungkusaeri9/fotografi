@@ -59,7 +59,7 @@ class Kategori extends MY_Controller
 			$data = $this->input->post();
 			$this->kategori->create($data);
 			$this->session->set_flashdata('success', 'Data Kategori berhasil ditambahkan!');
-			redirect('kategori');
+			redirect('admin/kategori');
 		}
 	}
 
@@ -96,7 +96,7 @@ class Kategori extends MY_Controller
 			$data = $this->input->post();
 			$this->kategori->update($id, $data);
 			$this->session->set_flashdata('success', 'Data Kategori berhasil diupdate!');
-			redirect('kategori');
+			redirect('admin/kategori');
 		}
 	}
 
@@ -104,6 +104,6 @@ class Kategori extends MY_Controller
 	{
 		$this->kategori->hapus($id);
 		$this->session->set_flashdata('success', 'Data Kategori berhasil dihapus!');
-		redirect('kategori');
+		redirect('admin/kategori');
 	}
 }

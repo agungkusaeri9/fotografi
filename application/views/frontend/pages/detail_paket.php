@@ -21,7 +21,7 @@
 				<div class="section-heading">
 					<h5 class="text-center mb-5">Form Pemesanan</h5>
 					<?php if ($this->session->userdata('name')) : ?>
-						<form action="<?= base_url('proses-booking') ?>" method="post" class="mt-5">
+						<form action="<?= base_url('customer/proses-booking') ?>" method="post" class="mt-5">
 							<input type="text" name="id_packet" value="<?= $paket->id_packet ?>" hidden>
 							<div class='form-group mb-3 text-left'>
 								<label for='nama' class='mb-2 text-left'>Nama <span class='text-danger'>*</span></label>
