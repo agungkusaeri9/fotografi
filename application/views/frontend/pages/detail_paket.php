@@ -1,21 +1,22 @@
 <!-- ***** Testimonials Starts ***** -->
-<section class="section" id="trainers">
+<section class="section mt-5" id="trainers">
 	<div class="container">
-		<div class="row justify-content-center">
+		<div class="row justify-content-center mt-5">
 			<div class="col-lg-8">
 				<div class="section-heading">
-					<h2><?= $paket->packet_name ?></h2>
+					<h2 class="text-center mb-5"><?= $paket->packet_name ?></h2>
+					<div class="text-center">
+						<img src="<?= base_url('assets/img/packets/') . $paket->first_image ?>" alt="line decoration" class="img-fluid" style="max-height:420px">
+					</div>
+					<div class="mt-5 text-center">
+						<p class="">Kategori : <?= $paket->kategori_nama ?></p>
+						<p class="">Harga : Rp <?= number_format($paket->packet_price, 0, ',', '.') . '/' . $paket->packet_duration ?></p>
+						<p>
+							<?= $paket->packet_description ?>
+						</p>
+					</div>
 				</div>
-				<div class="text-center">
-					<img src="<?= base_url('assets/img/packets/') . $paket->first_image ?>" alt="line decoration" class="img-fluid" style="max-height:420px">
-				</div>
-				<div class="mt-5 text-center">
-					<p class="">Kategori : <?= $paket->kategori_nama ?></p>
-					<p class="">Harga : Rp <?= number_format($paket->packet_price, 0, ',', '.') . '/' . $paket->packet_duration ?></p>
-					<p>
-						<?= $paket->packet_description ?>
-					</p>
-				</div>
+
 			</div>
 			<div class="col-md-4">
 				<div class="section-heading">
@@ -42,17 +43,19 @@
 								<?php endif; ?>
 							</div>
 							<div class='form-group mb-3 text-left'>
-								<label for='tanggal' class='mb-2'>Tanggal <span class='text-danger'>*</span></label>
-								<input type='date' name='tanggal' class='form-control <?php if (form_error('tanggal')) : ?> is-invalid <?php endif; ?>'>
+								<label for='tanggal' class='mb-2'>Tanggal dan Waktu <span class='text-danger'>*</span></label>
+								<input type='text' id='tanggal_booking' name='tanggal' class='form-control' <?php if (form_error('tanggal')) : ?> is-invalid <?php endif; ?>>
 								<?php if (form_error('tanggal')) : ?>
 									<div class='invalid-feedback'>
 										<?= form_error('tanggal') ?>
 									</div>
 								<?php endif; ?>
 							</div>
+
 							<div class='form-group mb-3 text-left'>
 								<label for='alamat' class='mb-2'>Alamat <span class='text-danger'>*</span></label>
 								<textarea name='alamat' class='form-control <?php if (form_error('alamat')) : ?> is-invalid <?php endif; ?>' id='alamat' cols='10' rows='3'></textarea>
+								<p class="small">Note : Jika Anda berada di luar kota Purwakarta, Jawa Barat, biaya transportasi akan ditanggung oleh pemesan diluar dari harga jasa.</p>
 								<?php if (form_error('alamat')) : ?>
 									<div class='invalid-feedback'>
 										<?= form_error('alamat') ?>

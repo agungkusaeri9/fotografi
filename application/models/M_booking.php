@@ -16,6 +16,19 @@ class M_booking extends CI_Model
 		return $query->result();
 	}
 
+	public function getKonfirmasi()
+	{
+		$this->db->select('*');
+		$this->db->from('booking');
+		$this->db->join('users', 'users.id = booking.id_user', 'inner');
+		$this->db->join('packets', 'packets.id_packet = booking.id_packet', 'inner');
+		$this->db->where('booking.status_booking', 1);
+		$this->db->order_by('tanggal_booking', 'DESC');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function getByUser()
 	{
 		$this->db->select('*');
@@ -50,7 +63,8 @@ class M_booking extends CI_Model
 				'total_harga' => $total_harga,
 				'status_transaksi' => 'Menunggu Pembayaran',
 				'data' => NULL,
-				'keterangan' => 'Down Payment'
+				'keterangan' => 'Down Payment',
+				'kode' => date('Ymd') . rand(1000, 9999) . rand(100, 9999)
 			]);
 
 			$this->db->insert('transaction', [
@@ -58,7 +72,8 @@ class M_booking extends CI_Model
 				'total_harga' => $total_harga,
 				'status_transaksi' => 'Menunggu Pembayaran',
 				'data' => NULL,
-				'keterangan' => 'Pelunasan'
+				'keterangan' => 'Pelunasan',
+				'kode' => date('Ymd') . rand(1000, 9999) . rand(100, 9999)
 			]);
 		}
 	}
@@ -85,5 +100,11 @@ class M_booking extends CI_Model
 
 		$query = $this->db->get();
 		return $query->row();
+	}
+
+	public function update($id_booking, $data)
+	{
+		$this->db->where('id_booking', $id_booking);
+		$this->db->update('booking', $data);
 	}
 }

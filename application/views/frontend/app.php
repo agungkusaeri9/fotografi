@@ -8,13 +8,15 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-	<title>Training Studio - Free CSS Template</title>
+	<title><?= $judul ?? "Royalposh.story" ?></title>
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/frontend/css/bootstrap.min.css">
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/frontend/css/font-awesome.css">
 
 	<link rel="stylesheet" href="<?= base_url() ?>/assets/frontend/css/templatemo-training-studio.css">
-
+	<!-- jQuery -->
+	<script src="<?= base_url() ?>/assets/js/jquery-3.7.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
@@ -50,8 +52,7 @@
 	$this->load->view('frontend/layouts/footer');
 	?>
 
-	<!-- jQuery -->
-	<script src="<?= base_url() ?>/assets/frontend/js/jquery-2.1.0.min.js"></script>
+
 
 	<!-- Bootstrap -->
 	<script src="<?= base_url() ?>/assets/frontend/js/popper.js"></script>
@@ -65,6 +66,14 @@
 	<script src="<?= base_url() ?>/assets/frontend/js/accordions.js"></script>
 	<!-- Global Init -->
 	<script src="<?= base_url() ?>/assets/frontend/js/custom.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script>
+		flatpickr("#tanggal_booking", {
+			enableTime: true, // Mengaktifkan pilihan waktu
+			dateFormat: "Y-m-d H:i", // Format tanggal dan waktu, "Y-m-d" untuk tanggal dan "H:i" untuk waktu 24 jam
+			time_24hr: true // Menggunakan format waktu 24 jam
+		});
+	</script>
 </body>
 
 </html>

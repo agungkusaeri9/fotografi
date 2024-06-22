@@ -13,6 +13,7 @@ class PageController extends CI_Controller
 	{
 		$data = [
 			'content' => 'frontend/pages/home',
+			'judul' => 'Home'
 		];
 		$this->load->view('frontend/app', $data);
 	}
@@ -21,7 +22,8 @@ class PageController extends CI_Controller
 	{
 		$data = [
 			'content' => 'frontend/pages/paket',
-			'data_paket' => $this->paket->get()
+			'data_paket' => $this->paket->get(),
+			'judul' => 'Daftar Paket'
 		];
 		$this->load->view('frontend/app', $data);
 	}
@@ -34,7 +36,8 @@ class PageController extends CI_Controller
 		}
 		$data = [
 			'content' => 'frontend/pages/detail_paket',
-			'paket' => $paket
+			'paket' => $paket,
+			'judul' => $paket->packet_name
 		];
 		$this->load->view('frontend/app', $data);
 	}
@@ -43,6 +46,7 @@ class PageController extends CI_Controller
 	{
 		$data = [
 			'content' => 'frontend/pages/about',
+			'judul' => 'Tentang'
 		];
 		$this->load->view('frontend/app', $data);
 	}
@@ -51,6 +55,7 @@ class PageController extends CI_Controller
 	{
 		$data = [
 			'content' => 'frontend/pages/contact',
+			'judul' => 'Kontak'
 		];
 		$this->load->view('frontend/app', $data);
 	}

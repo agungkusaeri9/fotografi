@@ -30,7 +30,13 @@
 								<td><?= $transaksi->hp ?></td>
 								<td><?= $transaksi->keterangan ?></td>
 								<td>Rp <?= format_rupiah($transaksi->total_harga) ?></td>
-								<td><?= $transaksi->status_transaksi ?></td>
+								<td>
+									<?php if ($transaksi->status_transaksi === 'settlement') : ?>
+										Lunas
+									<?php else : ?>
+										<?= $transaksi->status_transaksi ?>
+									<?php endif; ?>
+								</td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>

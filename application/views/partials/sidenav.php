@@ -41,6 +41,12 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('admin/jadwal') ?>">
+							<i class="fas fa-calendar-alt"></i>
+							<span class="nav-link-text">Jadwal</span>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="<?= site_url('admin/booking') ?>">
 							<i class="fas fa-calendar-check"></i>
 							<span class="nav-link-text">Booking</span>
@@ -48,7 +54,7 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="<?= site_url('admin/transaksi') ?>">
-							<i class="fas fa-calendar-check"></i>
+							<i class="fas fa-exchange-alt"></i>
 							<span class="nav-link-text">Transaksi</span>
 						</a>
 					</li>

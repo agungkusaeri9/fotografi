@@ -25,14 +25,14 @@
 							foreach ($data_booking as $booking) : ?>
 								<tr>
 									<td><?= $i++ ?></td>
-									<td><?= format_tanggal($booking->tanggal_booking) ?></td>
+									<td><?= format_tanggal($booking->tanggal_booking, 'd F Y H:i:s') ?></td>
 									<td><?= $booking->kode_booking ?></td>
 									<td><?= $booking->alamat ?></td>
 									<td><?= $booking->jumlah_pembayaran . 'x' ?></td>
 									<td>Rp <?= number_format($booking->total_bayar, 0, ',', '.') ?></td>
 									<td>
 										<?php if ($booking->status_booking == 0) : ?>
-											<span class="badge badge-warning">Menunggu Konfirmasi</span>
+											<span class="badge badge-warning">Menunggu Pembayaran</span>
 										<?php elseif ($booking->status_booking == 1) : ?>
 											<span class="badge badge-primary">Terkonfirmasi</span>
 										<?php elseif ($booking->status_booking == 2) : ?>

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="<?php echo $this->config->item('midtrans_client_key'); ?>"></script>
 <!-- ***** Testimonials Starts ***** -->
 <section class="section" id="trainers">
 	<div class="container">
@@ -39,7 +40,7 @@
 						<span>Status</span>
 						<span class="font-weight-bold">
 							<?php if ($booking->status_booking == 0) : ?>
-								<span class="badge badge-warning">Menunggu Konfirmasi</span>
+								<span class="badge badge-warning">Menunggu Pembayaran</span>
 							<?php elseif ($booking->status_booking == 1) : ?>
 								<span class="badge badge-primary">Terkonfirmasi</span>
 							<?php elseif ($booking->status_booking == 2) : ?>
@@ -71,10 +72,20 @@
 								<tr>
 									<td><?= $i++ ?></td>
 									<td><?= $transaksi->keterangan ?></td>
-									<td>Rp <?= format_rupiah($transaksi->total_harga) ?></td>
-									<td><?= $transaksi->status_transaksi ?></td>
+									<td><?= format_rupiah($transaksi->total_harga) ?></td>
 									<td>
-										<a href="<?= base_url('customer/booking/detail/')  . $booking->id_booking ?>" class="btn btn-sm btn-info">Bayar Sekarang</a>
+										<?php if ($transaksi->status_transaksi === 'settlement') : ?>
+											Lunas
+										<?php else : ?>
+											<?= $transaksi->status_transaksi ?>
+										<?php endif; ?>
+									</td>
+									<td>
+										<?php if ($transaksi->status_transaksi === 'Menunggu Pembayaran') : ?>
+											<a href="javascript:void(0)" data-id="<?= $transaksi->id_transaction ?>" class="btn btn-sm btn-info btnBayar">Bayar Sekarang</a>
+										<?php else : ?>
+											<a href="javascript:void(0)" class="btn btn-sm btn-info disabled" disabled>Bayar Sekarang</a>
+										<?php endif; ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>
@@ -86,3 +97,49 @@
 	</div>
 </section>
 <!-- ***** Testimonials Ends ***** -->
+<script type="text/javascript">
+	$('body').on('click', '.btnBayar', function(event) {
+		event.preventDefault();
+		$(this).attr("disabled", "disabled");
+		let id = $(this).data('id');
+		$.ajax({
+			url: '<?php echo base_url('customer/booking/token'); ?>',
+			data: {
+				id
+			},
+			type: 'POST',
+			dataType: 'JSON',
+			success: function(data) {
+				//location = data;
+
+				// var resultType = document.getElementById('result-type');
+				// var resultData = document.getElementById('result-data');
+
+				// function changeResult(type, data) {
+				// 	$("#result-type").val(type);
+				// 	$("#result-data").val(JSON.stringify(data));
+				// }
+
+				console.log(data);
+
+				snap.pay(data.snaptoken, {
+					onSuccess: function(result) {
+						changeResult('success', result);
+						console.log(result.status_message);
+						console.log(result);
+					},
+					onPending: function(result) {
+						changeResult('pending', result);
+						console.log(result.status_message);
+						console.log(result);
+					},
+					onError: function(result) {
+						changeResult('error', result);
+						console.log(result.status_message);
+						console.log(result);
+					}
+				});
+			}
+		});
+	});
+</script>

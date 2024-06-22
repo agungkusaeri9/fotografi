@@ -22,4 +22,32 @@ class M_transaksi extends CI_Model
 		$this->db->order_by('id_transaction', 'DESC');
 		return $this->db->get()->result();
 	}
+
+	function find($id_transaction)
+	{
+		$this->db->select('transaction.*, users.name as user_name, users.email as user_email');
+		$this->db->from('transaction');
+		$this->db->where('id_transaction', $id_transaction);
+		$this->db->join('booking', 'booking.id_booking=transaction.id_booking');
+		$this->db->join('users', 'users.id=booking.id_user');
+		return $this->db->get()->row();
+	}
+
+
+	function findKode($kode)
+	{
+		$this->db->select('transaction.*, users.name as user_name, users.email as user_email');
+		$this->db->from('transaction');
+		$this->db->where('kode', $kode);
+		$this->db->join('booking', 'booking.id_booking=transaction.id_booking');
+		$this->db->join('users', 'users.id=booking.id_user');
+		return $this->db->get()->row();
+	}
+
+
+	public function update($id_transaction, $data)
+	{
+		$this->db->where('id_transaction', $id_transaction);
+		$this->db->update('transaction', $data);
+	}
 }

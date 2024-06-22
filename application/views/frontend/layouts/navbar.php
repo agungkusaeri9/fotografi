@@ -2,13 +2,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<nav class="main-nav">
+				<nav class="main-nav" <?php if ($judul !== 'Home') : ?> style="background-color: red;" <?php endif; ?>>
 					<!-- ***** Logo Start ***** -->
-					<a href="<?= base_url('/') ?>" class="logo">Royalposh<em> Story</em></a>
+					<a href="<?= base_url('/') ?>" class="logo ml-4">Royalposh<em> Story</em></a>
 					<!-- ***** Logo End ***** -->
 					<!-- ***** Menu Start ***** -->
 					<ul class="nav">
-						<li class="scroll-to-section"><a href="<?= base_url('/') ?>" class="active">Home</a></li>
+						<li class="scroll-to-section"><a href="<?= base_url('/') ?>">Home</a></li>
 						<li class="scroll-to-section"><a href="<?= base_url('about') ?>">About</a></li>
 						<li class="scroll-to-section"><a href="<?= base_url('contact') ?>">Contact</a></li>
 						<li class="scroll-to-section"><a href="<?= base_url('paket') ?>">Paket</a></li>

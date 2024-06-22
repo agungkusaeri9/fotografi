@@ -33,7 +33,7 @@
 								<td>Rp <?= number_format($booking->total_bayar, 0, ',', '.') ?></td>
 								<td>
 									<?php if ($booking->status_booking == 0) : ?>
-										<span class="badge badge-warning">Menunggu Konfirmasi</span>
+										<span class="badge badge-warning">Menunggu Pembayaran</span>
 									<?php elseif ($booking->status_booking == 1) : ?>
 										<span class="badge badge-primary">Terkonfirmasi</span>
 									<?php elseif ($booking->status_booking == 2) : ?>
@@ -43,6 +43,9 @@
 									<?php endif; ?>
 								</td>
 								<td>
+									<?php if ($booking->status_booking == 1) : ?>
+										<a href="<?= base_url('admin/booking/set-selesai/')  . $booking->id_booking ?>" class="btn btn-sm btn-success">Set Selesai</a>
+									<?php endif; ?>
 									<a href="<?= base_url('admin/booking/detail/')  . $booking->id_booking ?>" class="btn btn-sm btn-info">Detail</a>
 									<?php if ($booking->status_booking == 0 || $booking->status_booking == 3) : ?>
 										<form action="<?= base_url('admin/booking/hapus/' . $booking->id_booking) ?>" method="post" class="d-inline" id="formDelete">

@@ -98,6 +98,7 @@ $route['admin/gambar-paket/hapus/(:num)'] = 'Admin/GambarPaket/hapus/$1';
 // booking
 $route['admin/booking'] = 'Admin/Booking/index';
 $route['admin/booking/detail/(:num)'] = 'Admin/Booking/detail/$1';
+$route['admin/booking/set-selesai/(:num)'] = 'Admin/Booking/setSelesai/$1';
 
 // profile
 $route['admin/profile'] = 'Admin/Profile/index';
@@ -106,6 +107,8 @@ $route['admin/profile/update'] = 'Admin/Profile/update';
 
 // transaksi
 $route['admin/transaksi'] = 'Admin/Transaksi/index';
+// jadwal
+$route['admin/jadwal'] = 'Admin/Jadwal/index';
 
 
 
@@ -126,5 +129,7 @@ $route['paket/(:any)'] = 'PageController/detail_paket/$1';
 $route['proses-booking'] = 'PageController/proses_booking';
 
 $route['customer/booking'] = 'Customer/Booking/index';
+$route['customer/booking/token'] = 'Customer/Booking/token';
+$route['customer/booking/notification'] = 'Customer/Booking/notification';
 $route['customer/proses-booking'] = 'Customer/Booking/proses_booking';
 $route['customer/booking/detail/(:num)'] = 'Customer/Booking/detail/$1';

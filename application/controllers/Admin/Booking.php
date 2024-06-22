@@ -34,4 +34,16 @@ class Booking extends MY_Controller
 		];
 		$this->load->view('layouts/app', $data);
 	}
+
+	public function setSelesai($id_booking)
+	{
+		if (!$id_booking) {
+			redirect('admin/booking');
+		}
+		$this->booking->update($id_booking, [
+			'status_booking' => 2
+		]);
+
+		redirect('admin/booking');
+	}
 }
