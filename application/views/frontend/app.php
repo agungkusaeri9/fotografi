@@ -69,9 +69,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script>
 		flatpickr("#tanggal_booking", {
-			enableTime: true, // Mengaktifkan pilihan waktu
-			dateFormat: "Y-m-d H:i", // Format tanggal dan waktu, "Y-m-d" untuk tanggal dan "H:i" untuk waktu 24 jam
-			time_24hr: true // Menggunakan format waktu 24 jam
+			enableTime: true,
+			dateFormat: "Y-m-d H:i",
+			time_24hr: true,
+			minDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
 		});
 	</script>
 </body>

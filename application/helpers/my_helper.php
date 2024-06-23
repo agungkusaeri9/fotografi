@@ -1,7 +1,7 @@
 <?php
 
-
 if (!function_exists('format_tanggal')) {
+	date_default_timezone_set('Asia/Jakarta');
 	function format_tanggal($tanggal, $format = 'd-m-Y')
 	{
 		return date($format, strtotime($tanggal));

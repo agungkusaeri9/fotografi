@@ -15,7 +15,7 @@
 							<th>Nama</th>
 							<th>Email</th>
 							<th>HP</th>
-							<th>Nama Akses</th>							
+							<th>Nama Akses</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -190,5 +190,3 @@
 		</div>
 	</div>
 </div>
-
-							

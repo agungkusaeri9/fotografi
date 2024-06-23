@@ -50,4 +50,18 @@ class M_transaksi extends CI_Model
 		$this->db->where('id_transaction', $id_transaction);
 		$this->db->update('transaction', $data);
 	}
+	public function cetak($tanggal_awal, $tanggal_akhir)
+	{
+		$this->db->select('*');
+		$this->db->from('transaction');
+		$this->db->join('booking', 'booking.id_booking = transaction.id_booking', 'inner');
+		if ($tanggal_awal && $tanggal_akhir) {
+			$this->db->where('transaction.tanggal >=', $tanggal_awal);
+			$this->db->where('transaction.tanggal <=', $tanggal_akhir);
+		} elseif ($tanggal_awal && !$tanggal_akhir) {
+			$this->db->where('DATE(tanggal)', $tanggal_awal);
+		}
+		$this->db->order_by('transaction.id_transaction', 'DESC');
+		return $this->db->get()->result();
+	}
 }

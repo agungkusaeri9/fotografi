@@ -58,6 +58,18 @@
 							<span class="nav-link-text">Transaksi</span>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('admin/user') ?>">
+							<i class="fas fa-users"></i>
+							<span class="nav-link-text">User</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= site_url('admin/laporan/transaksi') ?>">
+							<i class="fas fa-file"></i>
+							<span class="nav-link-text">Laporan Transaksi</span>
+						</a>
+					</li>
 				</ul>
 				<!-- Divider -->
 				<hr class="my-3">

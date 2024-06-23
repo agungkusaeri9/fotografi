@@ -30,7 +30,7 @@
 			"bInfo": false,
 			"autoWidth": true,
 			"ajax": {
-				"url": "<?= base_url('users/all') ?>",
+				"url": "<?= base_url('admin/user/all') ?>",
 				"type": "POST"
 			},
 
@@ -63,7 +63,7 @@
 
 			$.ajax({
 				type: "POST",
-				url: base_url + 'User/add',
+				url: base_url + 'admin/user/add',
 				data: data,
 				contentType: false,
 				cache: false,
@@ -85,7 +85,7 @@
 
 			$.ajax({
 				type: "POST",
-				url: base_url + 'User/update',
+				url: base_url + 'admin/user/update',
 				data: data,
 				contentType: false,
 				cache: false,
@@ -109,7 +109,7 @@
 
 			$.ajax({
 				type: "POST",
-				url: base_url + 'User/delete',
+				url: base_url + 'admin/user/delete',
 				data: data,
 				contentType: false,
 				cache: false,
@@ -133,7 +133,7 @@
 
 			$.ajax({
 				type: "POST",
-				url: base_url + 'User/updateStatus',
+				url: base_url + 'admin/user/updateStatus',
 				data: data,
 				contentType: false,
 				cache: false,
@@ -159,7 +159,7 @@
 
 			$.ajax({
 				type: "GET",
-				url: base_url + 'User/GetUserById/' + id,
+				url: base_url + 'admin/user/GetUserById/' + id,
 				dataType: "JSON",
 				success: function(data) {
 					// console.log(data);

@@ -107,4 +107,11 @@ class M_booking extends CI_Model
 		$this->db->where('id_booking', $id_booking);
 		$this->db->update('booking', $data);
 	}
+
+	public function cek($tanggal)
+	{
+		$this->db->from('booking');
+		$this->db->where('DATE(tanggal)', format_tanggal($tanggal, 'Y-m-d'));
+		return $this->db->count_all_results();
+	}
 }

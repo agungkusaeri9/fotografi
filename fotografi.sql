@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2024 at 07:14 AM
+-- Generation Time: Jun 23, 2024 at 06:14 PM
 -- Server version: 8.0.36-0ubuntu0.22.04.1
 -- PHP Version: 8.2.19
 
@@ -30,21 +30,25 @@ SET time_zone = "+00:00";
 CREATE TABLE `booking` (
   `id_booking` int NOT NULL,
   `id_user` int NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` timestamp NOT NULL,
   `alamat` text NOT NULL,
   `id_packet` int NOT NULL,
   `jumlah_pembayaran` int NOT NULL,
   `total_bayar` bigint NOT NULL,
   `kode_booking` varchar(50) NOT NULL,
-  `tanggal_booking` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `tanggal_booking` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status_booking` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id_booking`, `id_user`, `tanggal`, `alamat`, `id_packet`, `jumlah_pembayaran`, `total_bayar`, `kode_booking`, `tanggal_booking`) VALUES
-(6, 8, '2024-06-17', 'bandung, jawa barat', 3, 1, 1200000, '2024061707131626', '2024-06-17 07:13:16');
+INSERT INTO `booking` (`id_booking`, `id_user`, `tanggal`, `alamat`, `id_packet`, `jumlah_pembayaran`, `total_bayar`, `kode_booking`, `tanggal_booking`, `status_booking`) VALUES
+(17, 14, '2024-06-24 05:00:00', 'sdfasdfasd', 6, 2, 5000000, '2024062304113060', '2024-06-23 16:11:30', 0),
+(18, 14, '2024-06-23 05:00:00', 'adfasdasdf', 4, 2, 1800000, '2024062304115058', '2024-06-23 16:11:50', 0),
+(19, 14, '2024-06-24 05:00:00', 'asdfasdf', 2, 2, 800000, '2024062304150190', '2024-06-23 16:15:01', 0),
+(20, 14, '2024-07-03 16:26:00', 'asdfasasdfasdf', 3, 2, 1200000, '2024062311265923', '2024-06-23 16:26:59', 0);
 
 -- --------------------------------------------------------
 
@@ -82,7 +86,7 @@ CREATE TABLE `menus` (
   `sequence` int DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `menus`
@@ -123,7 +127,7 @@ CREATE TABLE `packets` (
   `membership` varchar(11) DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `packets`
@@ -134,7 +138,8 @@ INSERT INTO `packets` (`id_packet`, `packet_name`, `id_kategori`, `packet_durati
 (3, 'Paket 3', 2, '10 Hours of Usage', 1200000, 'Kostum, 5 Background, 40 Foto (Original Photo), 20 Foto Edit, 10 Cetak', 'no', '2022-06-14 17:04:46', '2024-06-17 12:09:42'),
 (4, 'Paket 4', 2, '10 Hours of Usage', 1800000, 'Kostum, 7 Background, 50 Foto (Original Photo), 25 Foto Edit, Cetak Album', 'no', '2022-06-14 17:05:35', '2024-06-17 12:09:44'),
 (5, 'Paket 5', 1, 'Unlimited Shoot', 2500000, 'Kostum, Make up, All Background, 80 Foto (Full HD), 40 Foto Edit, Album Jumbo', 'no', '2022-06-14 17:06:46', '2024-06-17 12:09:46'),
-(6, 'Paket 6', 2, 'Unlimited Shoot', 5000000, 'Kostum, Make up, All Background, 110 Foto (Full HD), 60 Foto Edit, Album Jumbo', 'no', '2022-06-14 17:07:33', '2024-06-17 12:09:47');
+(6, 'Paket 6', 2, 'Unlimited Shoot', 5000000, 'Kostum, Make up, All Background, 110 Foto (Full HD), 60 Foto Edit, Album Jumbo', 'no', '2022-06-14 17:07:33', '2024-06-17 12:09:47'),
+(7, 'Cade Bird', 2, 'Autem qui labore del', 756, 'In incidunt minim v', NULL, '2024-06-18 23:24:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -145,7 +150,7 @@ INSERT INTO `packets` (`id_packet`, `packet_name`, `id_kategori`, `packet_durati
 CREATE TABLE `packet_images` (
   `id_packet_images` bigint UNSIGNED NOT NULL,
   `packet_id` bigint UNSIGNED DEFAULT NULL,
-  `image_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `image_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -153,11 +158,11 @@ CREATE TABLE `packet_images` (
 --
 
 INSERT INTO `packet_images` (`id_packet_images`, `packet_id`, `image_name`) VALUES
-(22, 2, 'Use_Case_Diagram1.jpg'),
 (34, 3, 'paket-foto-pernikahan-paket-foto-engagement-jakarta-bogor-depok-Bekasi-tangerang_2-e1631033763330.jpeg'),
 (35, 4, 'wedding_dalarna_sophiehakanssonphotography3.jpg'),
 (36, 5, 'portofolio_2-800x424-1.jpg'),
-(37, 6, '_t6a4051-rkBM2-bTr.jpg');
+(37, 6, '_t6a4051-rkBM2-bTr.jpg'),
+(39, 2, 'paket-foto-pernikahan-paket-foto-engagement-jakarta-bogor-depok-Bekasi-tangerang_2-e1631033763330.jpeg');
 
 -- --------------------------------------------------------
 
@@ -191,54 +196,36 @@ INSERT INTO `roles` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `transaction` (
   `id_transaction` int NOT NULL,
   `id_booking` int NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
   `total_harga` float NOT NULL,
-  `status` varchar(60) NOT NULL,
-  `data` json DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `status_transaksi` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `data` json DEFAULT NULL,
+  `kode` bigint NOT NULL,
+  `snap_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `tanggal` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`id_transaction`, `id_booking`, `total_harga`, `status`, `data`) VALUES
-(3, 6, 1200000, 'Menunggu Pembayaran', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `transactions2`
---
-
-CREATE TABLE `transactions2` (
-  `id_transaction` bigint UNSIGNED NOT NULL,
-  `packet_id` bigint UNSIGNED NOT NULL,
-  `customer_id` bigint UNSIGNED DEFAULT NULL COMMENT 'customer id',
-  `booking_code` varchar(20) DEFAULT NULL,
-  `datetime` datetime DEFAULT NULL,
-  `datetime_fix` datetime DEFAULT NULL,
-  `note` text,
-  `payment_image` varchar(50) DEFAULT NULL,
-  `payment_date` datetime DEFAULT NULL,
-  `payment_validation_at` datetime DEFAULT NULL,
-  `payment_validation_by` bigint UNSIGNED DEFAULT NULL,
-  `photographer_id` bigint UNSIGNED DEFAULT NULL,
-  `photographer_take_booking` datetime DEFAULT NULL,
-  `photographer_finish_confirm` datetime DEFAULT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `transaction_images`
---
-
-CREATE TABLE `transaction_images` (
-  `id_transaction_image` bigint UNSIGNED NOT NULL,
-  `transaction_id` bigint UNSIGNED NOT NULL,
-  `image_name` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `transaction` (`id_transaction`, `id_booking`, `keterangan`, `total_harga`, `status_transaksi`, `data`, `kode`, `snap_token`, `tanggal`) VALUES
+(9, 14, 'Down Payment', 600000, 'Menunggu Pembayaran', NULL, 2147483647, 'a8e32382-d078-4ce4-8368-a33957c91e1a', NULL),
+(10, 14, 'Pelunasan', 600000, 'Menunggu Pembayaran', NULL, 2147483647, '47c36a5d-1820-42a8-b82b-3997b1f3d583', NULL),
+(11, 15, 'Down Payment', 900000, 'Menunggu Pembayaran', NULL, 2024062041888997, 'bf9d2514-b298-4bb7-82db-6b3caf17f15e', NULL),
+(12, 15, 'Pelunasan', 900000, 'Menunggu Pembayaran', NULL, 2024062030789063, NULL, NULL),
+(13, 0, 'Down Payment', 600000, 'Menunggu Pembayaran', NULL, 2024062255031501, NULL, NULL),
+(14, 0, 'Pelunasan', 600000, 'Menunggu Pembayaran', NULL, 2024062260465167, NULL, NULL),
+(15, 16, 'Down Payment', 600000, 'settlement', NULL, 2024062295419989, '930ac6ff-0aaa-40a6-a0db-c3c2af9b2891', NULL),
+(16, 16, 'Pelunasan', 600000, 'settlement', NULL, 2024062248098047, 'd1780a9f-b19b-4369-a733-94201b1483b8', NULL),
+(17, 17, 'Down Payment', 2500000, 'Menunggu Pembayaran', NULL, 2024062322945390, NULL, NULL),
+(18, 17, 'Pelunasan', 2500000, 'Menunggu Pembayaran', NULL, 2024062313656304, NULL, NULL),
+(19, 18, 'Down Payment', 900000, 'Menunggu Pembayaran', NULL, 2024062344117898, NULL, NULL),
+(20, 18, 'Pelunasan', 900000, 'Menunggu Pembayaran', NULL, 2024062333906708, NULL, NULL),
+(21, 19, 'Down Payment', 400000, 'Menunggu Pembayaran', NULL, 2024062396569870, NULL, '2024-06-23'),
+(22, 19, 'Pelunasan', 400000, 'Menunggu Pembayaran', NULL, 2024062393515637, NULL, '2024-06-16'),
+(23, 20, 'Down Payment', 600000, 'Menunggu Pembayaran', NULL, 2024062373267218, NULL, '2024-06-16'),
+(24, 20, 'Pelunasan', 600000, 'Menunggu Pembayaran', NULL, 202406237041232, NULL, '2024-06-22');
 
 -- --------------------------------------------------------
 
@@ -266,10 +253,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `hp`, `remember_token`, `role_id`, `status`, `images`, `created_at`, `updated_at`) VALUES
-(1, 'Ahmad Fatoni 123', 'admin@gmail.com', NULL, '$2y$10$UFcHvhQLBZxdLT69jXnc3uQ94yDw1EiD4zA7/o5.ZTS4UMFPtlsqW', '089676490971', NULL, 1, 1, '8d7cce30957206cd83a26b986052f5c4.png', '2022-06-08 08:42:08', NULL),
-(3, 'Melani', 'fotografer@gmail.com', NULL, '$2y$10$UFcHvhQLBZxdLT69jXnc3uQ94yDw1EiD4zA7/o5.ZTS4UMFPtlsqW', '0881912738123', NULL, 2, 1, '404bb8b63c9f2637a44bf01e9b5c11e6.jpg', '2022-06-08 08:42:08', NULL),
-(8, 'Ilham Taufik', 'customer@gmail.com', NULL, '$2y$10$UFcHvhQLBZxdLT69jXnc3uQ94yDw1EiD4zA7/o5.ZTS4UMFPtlsqW', '08815925920', NULL, 3, 1, '98a17bdf0919701abfd1d236d1b1374a.png', '2022-06-28 13:06:58', NULL),
-(9, 'Sopoline Cross', 'lejo@mailinator.com', NULL, '$2y$10$UjXzprOSoohYAN/j4GrXRubHnS07Dj3JwdFlWzgicRbRvrlpSbt9.', '34', NULL, 3, 1, NULL, '2024-06-17 05:03:42', NULL);
+(1, 'Ahmad Fatoni', 'admin@gmail.com', NULL, '$2y$10$UFcHvhQLBZxdLT69jXnc3uQ94yDw1EiD4zA7/o5.ZTS4UMFPtlsqW', '089676490971', NULL, 1, 1, '8d7cce30957206cd83a26b986052f5c4.png', '2022-06-08 08:42:08', NULL),
+(13, 'Sigourney Horne123', 'pika@mailinator.com', NULL, '$2y$10$xJUqxlFkMYqUgiPA0vqln.aYMSKwc9vo/Xpmlo7DmSs30DL9WAJQG', 'Aperiam est deserunt', NULL, 3, 1, NULL, '2024-06-23 15:58:59', NULL),
+(14, 'Alika Hicks', 'myrimygone@mailinator.com', NULL, '$2y$10$fiPR5O00LaLlF/eDMD3s0uyeWmNTsf0G5ibPfiACr770a6is3BtBi', '08912312412412', NULL, 3, 1, NULL, '2024-06-23 16:11:14', NULL);
 
 --
 -- Indexes for dumped tables
@@ -321,21 +307,6 @@ ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id_transaction`);
 
 --
--- Indexes for table `transactions2`
---
-ALTER TABLE `transactions2`
-  ADD PRIMARY KEY (`id_transaction`),
-  ADD KEY `trx_user_id_fk` (`customer_id`),
-  ADD KEY `trx_packet_fk` (`packet_id`);
-
---
--- Indexes for table `transaction_images`
---
-ALTER TABLE `transaction_images`
-  ADD PRIMARY KEY (`id_transaction_image`),
-  ADD KEY `images_transaction_id_fk` (`transaction_id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -351,13 +322,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_booking` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kategori` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -369,13 +340,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `packets`
 --
 ALTER TABLE `packets`
-  MODIFY `id_packet` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_packet` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `packet_images`
 --
 ALTER TABLE `packet_images`
-  MODIFY `id_packet_images` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_packet_images` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -387,25 +358,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `transactions2`
---
-ALTER TABLE `transactions2`
-  MODIFY `id_transaction` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `transaction_images`
---
-ALTER TABLE `transaction_images`
-  MODIFY `id_transaction_image` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaction` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
@@ -422,19 +381,6 @@ ALTER TABLE `menus`
 --
 ALTER TABLE `packet_images`
   ADD CONSTRAINT `id_packet_fk` FOREIGN KEY (`packet_id`) REFERENCES `packets` (`id_packet`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `transactions2`
---
-ALTER TABLE `transactions2`
-  ADD CONSTRAINT `trx_packet_fk` FOREIGN KEY (`packet_id`) REFERENCES `packets` (`id_packet`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `trx_user_id_fk` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `transaction_images`
---
-ALTER TABLE `transaction_images`
-  ADD CONSTRAINT `images_transaction_id_fk` FOREIGN KEY (`transaction_id`) REFERENCES `transactions2` (`id_transaction`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`

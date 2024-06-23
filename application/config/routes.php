@@ -111,6 +111,19 @@ $route['admin/transaksi'] = 'Admin/Transaksi/index';
 $route['admin/jadwal'] = 'Admin/Jadwal/index';
 
 
+// User
+$route['admin/user'] = 'Admin/User/index';
+$route['admin/user/all'] = 'Admin/User/all';
+$route['admin/user/tambah'] = 'Admin/User/tambah';
+$route['admin/user/proses_tambah'] = 'Admin/User/proses_tambah';
+$route['admin/user/edit/(:num)'] = 'Admin/User/edit/$1';
+$route['admin/user/proses_update/(:num)'] = 'Admin/User/proses_update/$1';
+$route['admin/user/hapus/(:num)'] = 'Admin/User/hapus/$1';
+
+// laporan
+$route['admin/laporan/transaksi'] = 'Admin/Laporan/transaksi_index';
+$route['admin/laporan/transaksi/print'] = 'Admin/Laporan/transaksi_print';
+
 
 
 $route['paket-f'] = '_Fotografer/Paket';

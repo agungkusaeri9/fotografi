@@ -20,6 +20,12 @@
 			</div>
 			<div class="col-md-4">
 				<div class="section-heading">
+					<?php if ($this->session->flashdata('error')) : ?>
+						<div class="alert alert-danger">
+							<?php echo $this->session->flashdata('error'); ?>
+						</div>
+					<?php endif; ?>
+
 					<h5 class="text-center mb-5">Form Pemesanan</h5>
 					<?php if ($this->session->userdata('name')) : ?>
 						<form action="<?= base_url('customer/proses-booking') ?>" method="post" class="mt-5">

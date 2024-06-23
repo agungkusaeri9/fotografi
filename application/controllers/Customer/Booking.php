@@ -43,6 +43,14 @@ class Booking extends CI_Controller
 		$input = $this->input->post();
 		$paket = $this->paket->find($input['id_packet']);
 		$total_bayar = $paket->packet_price;
+
+		// cek booking
+		$cek_booking = $this->booking->cek($input['tanggal']);
+
+		if ($cek_booking > 0) {
+			$this->session->set_flashdata('error', 'Tanggal tersebut sudah ada yang booking.');
+			redirect('paket/' . $input['id_packet']);
+		}
 		$data = [
 			'id_user' => $this->session->userdata('id'),
 			'id_packet' => $input['id_packet'],
@@ -121,7 +129,8 @@ class Booking extends CI_Controller
 		// echo json_encode($order_id);
 
 		$this->transaksi->update($transaksi->id_transaction, [
-			'status_transaksi' => $transaction
+			'status_transaksi' => $transaction,
+			'tanggal' => date('Y-m-d')
 		]);
 	}
 }
