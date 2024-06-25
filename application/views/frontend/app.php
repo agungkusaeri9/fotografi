@@ -17,6 +17,7 @@
 	<!-- jQuery -->
 	<script src="<?= base_url() ?>/assets/js/jquery-3.7.1.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 </head>
 
 <body>
@@ -67,6 +68,7 @@
 	<!-- Global Init -->
 	<script src="<?= base_url() ?>/assets/frontend/js/custom.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 	<script>
 		flatpickr("#tanggal_booking", {
 			enableTime: true,
@@ -74,6 +76,12 @@
 			time_24hr: true,
 			minDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
 		});
+	</script>
+	<script>
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true
+		})
 	</script>
 </body>
 

@@ -114,4 +114,21 @@ class M_booking extends CI_Model
 		$this->db->where('DATE(tanggal)', format_tanggal($tanggal, 'Y-m-d'));
 		return $this->db->count_all_results();
 	}
+
+	public function cetak($tanggal_awal, $tanggal_akhir)
+	{
+		$this->db->select('*');
+		$this->db->from('booking');
+		$this->db->join('users', 'users.id = booking.id_user', 'inner');
+		$this->db->join('packets', 'packets.id_packet = booking.id_packet', 'inner');
+		if ($tanggal_awal && $tanggal_akhir) {
+			$this->db->where('booking.tanggal_booking >=', format_tanggal($tanggal_awal));
+			$this->db->where('booking.tanggal_booking <=',  format_tanggal($tanggal_akhir));
+		} elseif ($tanggal_awal && !$tanggal_akhir) {
+			$this->db->where('DATE(tanggal_booking)',  format_tanggal($tanggal_awal));
+		}
+		$this->db->order_by('tanggal_booking', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }

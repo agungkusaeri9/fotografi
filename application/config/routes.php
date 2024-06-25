@@ -123,6 +123,8 @@ $route['admin/user/hapus/(:num)'] = 'Admin/User/hapus/$1';
 // laporan
 $route['admin/laporan/transaksi'] = 'Admin/Laporan/transaksi_index';
 $route['admin/laporan/transaksi/print'] = 'Admin/Laporan/transaksi_print';
+$route['admin/laporan/booking'] = 'Admin/Laporan/booking_index';
+$route['admin/laporan/booking/print'] = 'Admin/Laporan/booking_print';
 
 
 
@@ -136,8 +138,9 @@ $route['kategori'] = 'Kategori';
 // frontend
 $route['about'] = 'PageController/about';
 $route['contact'] = 'PageController/contact';
+$route['portfolio'] = 'PageController/portfolio';
 $route['paket'] = 'PageController/paket';
-$route['paket'] = 'PageController/paket';
+$route['about'] = 'PageController/about';
 $route['paket/(:any)'] = 'PageController/detail_paket/$1';
 $route['proses-booking'] = 'PageController/proses_booking';
 

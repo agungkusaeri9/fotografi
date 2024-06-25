@@ -11,6 +11,7 @@
 						<li class="scroll-to-section"><a href="<?= base_url('/') ?>">Home</a></li>
 						<li class="scroll-to-section"><a href="<?= base_url('about') ?>">About</a></li>
 						<li class="scroll-to-section"><a href="<?= base_url('contact') ?>">Contact</a></li>
+						<li class="scroll-to-section"><a href="<?= base_url('portfolio') ?>">Portfolio</a></li>
 						<li class="scroll-to-section"><a href="<?= base_url('paket') ?>">Paket</a></li>
 						<?php if ($this->session->userdata('id')) : ?>
 							<li class="nav-item dropdown">

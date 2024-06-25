@@ -3,10 +3,10 @@
 		<div class="card">
 			<!-- Card header -->
 			<div class="card-header">
-				<h3 class="mb-0">Laporan Transaksi</h3>
+				<h3 class="mb-0">Laporan Booking</h3>
 			</div>
 			<div class="card-body">
-				<form action="<?= base_url('admin/laporan/transaksi/print') ?>" method="get" target="_blank">
+				<form action="<?= base_url('admin/laporan/booking/print') ?>" method="get" target="_blank">
 					<div class='form-group mb-3'>
 						<label for='tanggal_awal' class='mb-2'>Tanggal Awal</label>
 						<input type='date' name='tanggal_awal' class='form-control <?php if (form_error('tanggal_awal')) : ?> is-invalid <?php endif; ?>'>

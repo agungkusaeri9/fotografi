@@ -59,4 +59,13 @@ class PageController extends CI_Controller
 		];
 		$this->load->view('frontend/app', $data);
 	}
+
+	public function portfolio()
+	{
+		$data = [
+			'content' => 'frontend/pages/portfolio',
+			'judul' => 'Portfolio'
+		];
+		$this->load->view('frontend/app', $data);
+	}
 }

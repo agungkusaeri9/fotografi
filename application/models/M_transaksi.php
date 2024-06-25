@@ -55,6 +55,7 @@ class M_transaksi extends CI_Model
 		$this->db->select('*');
 		$this->db->from('transaction');
 		$this->db->join('booking', 'booking.id_booking = transaction.id_booking', 'inner');
+
 		if ($tanggal_awal && $tanggal_akhir) {
 			$this->db->where('transaction.tanggal >=', $tanggal_awal);
 			$this->db->where('transaction.tanggal <=', $tanggal_akhir);

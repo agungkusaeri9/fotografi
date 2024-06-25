@@ -104,7 +104,7 @@
 					<h2>Start Capturing <em>Moments</em> Today!</h2>
 					<p>Whether it's a wedding, corporate event, or family portrait session, let us capture your special moments with our professional photography services.</p>
 					<div class="main-button scroll-to-section">
-						<a href="#our-portfolio">View Our Portfolio</a>
+						<a href="<?= base_url('portfolio') ?>">View Our Portfolio</a>
 					</div>
 				</div>
 			</div>
