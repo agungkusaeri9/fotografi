@@ -13,6 +13,7 @@ class Jadwal extends MY_Controller
 
 	public function index()
 	{
+		$this->session->set_userdata(['menu_active' => 'Jadwal', 'sub_menu_active' => '']);
 		$data = [
 			'content' => 'components/jadwal/index',
 			// 'plugin' => 'plugins/users',

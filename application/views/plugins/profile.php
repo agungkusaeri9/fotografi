@@ -29,7 +29,7 @@
 					$('#form-update-user [name="email"]').val(data.email);
 					$('#form-update-user [name="hp"]').val(data.hp);
 
-					$('.image-upload img').attr('src', base_url + 'assets/img/users/' + image);
+					// $('.image-upload img').attr('src', base_url + 'assets/img/users/' + image);
 					$('#image-update').val(data.images);
 				}
 			});

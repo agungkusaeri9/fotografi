@@ -48,7 +48,6 @@ class User extends MY_Controller
 		$this->form_validation->set_rules('hp', 'Np. HP', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('role_id', 'Role', 'required');
 		if ($this->form_validation->run() == FALSE) {
 			$this->session->set_userdata(['menu_active' => 'user', 'sub_menu_active' => '']);
 			$menu = $this->MenusModel->getMenu();
@@ -63,6 +62,7 @@ class User extends MY_Controller
 		} else {
 			$data = $this->input->post();
 			$data['status'] = 1;
+			$data['role_id'] = 1;
 			$data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
 			$this->user->create($data);
 			$this->session->set_flashdata('success', 'Data user berhasil ditambahkan!');
@@ -89,7 +89,6 @@ class User extends MY_Controller
 	{
 		$this->form_validation->set_rules('name', 'Nama', 'required');
 		$this->form_validation->set_rules('hp', 'Np. HP', 'required');
-		$this->form_validation->set_rules('role_id', 'Role', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->session->set_userdata(['menu_active' => 'user', 'sub_menu_active' => '']);

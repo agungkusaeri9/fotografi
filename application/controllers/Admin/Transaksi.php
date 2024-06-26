@@ -13,6 +13,7 @@ class Transaksi extends MY_Controller
 
 	public function index()
 	{
+		$this->session->set_userdata(['menu_active' => 'Transaksi', 'sub_menu_active' => '']);
 		$data = [
 			'content' => 'components/transaksi/index',
 			// 'plugin' => 'plugins/users',

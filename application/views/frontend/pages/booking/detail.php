@@ -82,7 +82,7 @@
 									</td>
 									<td>
 										<?php if ($transaksi->status_transaksi === 'Menunggu Pembayaran') : ?>
-											<a href="javascript:void(0)" data-id="<?= $transaksi->id_transaction ?>" class="btn btn-sm btn-info btnBayar">Bayar Sekarang</a>
+											<a href="javascript:void(0)" data-id="<?= $transaksi->id_transaction ?>" data-snaptoken="<?= $transaksi->snap_token ?>" class="btn btn-sm btn-info btnBayar">Bayar Sekarang</a>
 										<?php else : ?>
 											<a href="javascript:void(0)" class="btn btn-sm btn-info disabled" disabled>Bayar Sekarang</a>
 										<?php endif; ?>
@@ -101,45 +101,55 @@
 	$('body').on('click', '.btnBayar', function(event) {
 		event.preventDefault();
 		$(this).attr("disabled", "disabled");
+
+		let snaptoken = $(this).data('snaptoken');
 		let id = $(this).data('id');
-		$.ajax({
-			url: '<?php echo base_url('customer/booking/token'); ?>',
-			data: {
-				id
-			},
-			type: 'POST',
-			dataType: 'JSON',
-			success: function(data) {
-				//location = data;
-
-				// var resultType = document.getElementById('result-type');
-				// var resultData = document.getElementById('result-data');
-
-				// function changeResult(type, data) {
-				// 	$("#result-type").val(type);
-				// 	$("#result-data").val(JSON.stringify(data));
-				// }
-
-				console.log(data);
-
-				snap.pay(data.snaptoken, {
-					onSuccess: function(result) {
-						changeResult('success', result);
-						console.log(result.status_message);
-						console.log(result);
-					},
-					onPending: function(result) {
-						changeResult('pending', result);
-						console.log(result.status_message);
-						console.log(result);
-					},
-					onError: function(result) {
-						changeResult('error', result);
-						console.log(result.status_message);
-						console.log(result);
-					}
-				});
-			}
-		});
+		if (snaptoken) {
+			snap.pay(snaptoken, {
+				onSuccess: function(result) {
+					changeResult('success', result);
+					console.log(result.status_message);
+					console.log(result);
+				},
+				onPending: function(result) {
+					changeResult('pending', result);
+					console.log(result.status_message);
+					console.log(result);
+				},
+				onError: function(result) {
+					changeResult('error', result);
+					console.log(result.status_message);
+					console.log(result);
+				}
+			});
+		} else {
+			$.ajax({
+				url: '<?php echo base_url('customer/booking/token'); ?>',
+				data: {
+					id
+				},
+				type: 'POST',
+				dataType: 'JSON',
+				success: function(data) {
+					snap.pay(data.snaptoken, {
+						onSuccess: function(result) {
+							changeResult('success', result);
+							console.log(result.status_message);
+							console.log(result);
+						},
+						onPending: function(result) {
+							changeResult('pending', result);
+							console.log(result.status_message);
+							console.log(result);
+						},
+						onError: function(result) {
+							changeResult('error', result);
+							console.log(result.status_message);
+							console.log(result);
+						}
+					});
+				}
+			});
+		}
 	});
 </script>

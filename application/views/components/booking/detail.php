@@ -72,7 +72,6 @@
 							<th>Keterangan</th>
 							<th>Harga</th>
 							<th>Status</th>
-							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -83,9 +82,6 @@
 								<td><?= $transaksi->keterangan ?></td>
 								<td><?= format_rupiah($transaksi->total_harga) ?></td>
 								<td><?= $transaksi->status_transaksi ?></td>
-								<td>
-									<a href="" class="btn btn-primary btn-sm">Bayar Sekarang</a>
-								</td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>

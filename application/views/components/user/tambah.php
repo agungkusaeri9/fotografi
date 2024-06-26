@@ -44,19 +44,6 @@
 							</div>
 						<?php endif; ?>
 					</div>
-					<div class='form-group mb-3'>
-						<label for='role_id' class='mb-2'>Role</label>
-						<select name='role_id' id='role_id' class='form-control<?php if (form_error('role_id')) : ?> is-invalid <?php endif; ?>'>
-							<option value='' selected disabled>Pilih Role</option>
-							<option value="1">Admin</option>
-							<option value="3">Customer</option>
-						</select>
-						<?php if (form_error('role_id')) : ?>
-							<div class='invalid-feedback'>
-								<?= form_error('role_id') ?>
-							</div>
-						<?php endif; ?>
-					</div>
 					<div class="form-group">
 						<button class="btn btn-primary">Simpan Data</button>
 					</div>

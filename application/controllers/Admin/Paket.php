@@ -13,7 +13,7 @@ class Paket extends MY_Controller
 
 	public function index()
 	{
-		$this->session->set_userdata(['menu_active' => 'master-data', 'sub_menu_active' => 'paket']);
+		$this->session->set_userdata(['menu_active' => 'Paket', 'sub_menu_active' => '']);
 		$menu = $this->MenusModel->getMenu();
 
 		$data = [
@@ -29,7 +29,7 @@ class Paket extends MY_Controller
 
 	public function tambah()
 	{
-		$this->session->set_userdata(['menu_active' => 'Paket', 'sub_menu_active' => '']);
+		$this->session->set_userdata(['menu_active' => 'Tambah Paket', 'sub_menu_active' => '']);
 		$menu = $this->MenusModel->getMenu();
 		$data = [
 			'content' => 'components/paket/tambah',

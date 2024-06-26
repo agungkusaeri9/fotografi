@@ -14,6 +14,7 @@ class Booking extends MY_Controller
 
 	public function index()
 	{
+		$this->session->set_userdata(['menu_active' => 'Booking', 'sub_menu_active' => '']);
 		$data = [
 			'content' => 'components/booking/index',
 			// 'plugin' => 'plugins/users',
@@ -25,6 +26,7 @@ class Booking extends MY_Controller
 
 	public function detail($id_booking)
 	{
+		$this->session->set_userdata(['menu_active' => 'Detail Booking', 'sub_menu_active' => '']);
 		$data = [
 			'content' => 'components/booking/detail',
 			// 'plugin' => 'plugins/users',
