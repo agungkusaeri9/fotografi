@@ -48,4 +48,12 @@ class Booking extends MY_Controller
 
 		redirect('admin/booking');
 	}
+
+
+	public function hapus($id)
+	{
+		$this->booking->hapus($id);
+		$this->session->set_flashdata('success', 'Data Booking berhasil dihapus!');
+		redirect('admin/booking');
+	}
 }

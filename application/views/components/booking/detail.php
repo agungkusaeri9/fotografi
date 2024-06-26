@@ -38,7 +38,7 @@
 						<span>Status</span>
 						<span class="font-weight-bold">
 							<?php if ($booking->status_booking == 0) : ?>
-								<span class="badge badge-warning">Menunggu Konfirmasi</span>
+								<span class="badge badge-warning">Menunggu Pembayaran</span>
 							<?php elseif ($booking->status_booking == 1) : ?>
 								<span class="badge badge-primary">Terkonfirmasi</span>
 							<?php elseif ($booking->status_booking == 2) : ?>

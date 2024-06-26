@@ -131,4 +131,10 @@ class M_booking extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function hapus($id_booking)
+	{
+		$this->db->where('id_booking', $id_booking);
+		$this->db->delete('booking');
+	}
 }
