@@ -47,6 +47,8 @@
 								<span class="badge badge-success">Selesai</span>
 							<?php elseif ($booking->status_booking == 3) : ?>
 								<span class="badge badge-danger">Dibatalkan</span>
+							<?php elseif ($booking->status_booking == 4) : ?>
+								<span class="badge badge-info">Menunggu Pelunasan</span>
 							<?php endif; ?>
 						</span>
 					</li>
@@ -54,6 +56,14 @@
 			</div>
 		</div>
 		<div class="row mt-2">
+			<div class="col-md-12">
+				<?php if ($this->session->flashdata('success')) : ?>
+					<div class="alert alert-success">
+						<strong>Berhasil!</strong>
+						<?= $this->session->flashdata('success') ?>
+					</div>
+				<?php endif; ?>
+			</div>
 			<div class="col">
 				<div class="table-responsive">
 					<table class="table nowrap table-hovertable-sm">
@@ -97,7 +107,18 @@
 	</div>
 </section>
 <!-- ***** Testimonials Ends ***** -->
-<script type="text/javascript">
+<script>
+	function sweetAlert(status, title, message) {
+		Swal.fire({
+			position: 'center',
+			icon: status,
+			title: title,
+			text: message,
+			showConfirmButton: true,
+			timer: 1500
+		})
+	}
+
 	$('body').on('click', '.btnBayar', function(event) {
 		event.preventDefault();
 		$(this).attr("disabled", "disabled");
@@ -107,19 +128,22 @@
 		if (snaptoken) {
 			snap.pay(snaptoken, {
 				onSuccess: function(result) {
-					changeResult('success', result);
-					console.log(result.status_message);
-					console.log(result);
+					setInterval(() => {
+						sweetAlert('success',
+							'Pembayaran berhasil',
+							'Pembayaran telah diverifikasi.'
+						)
+					}, 3000);
+					location.reload();
 				},
 				onPending: function(result) {
-					changeResult('pending', result);
-					console.log(result.status_message);
-					console.log(result);
+					location.reload()
 				},
 				onError: function(result) {
-					changeResult('error', result);
-					console.log(result.status_message);
-					console.log(result);
+					location.reload()
+				},
+				onClose: function() {
+					location.reload()
 				}
 			});
 		} else {
@@ -133,19 +157,22 @@
 				success: function(data) {
 					snap.pay(data.snaptoken, {
 						onSuccess: function(result) {
-							changeResult('success', result);
-							console.log(result.status_message);
-							console.log(result);
+							setInterval(() => {
+								sweetAlert('success',
+									'Pembayaran berhasil',
+									'Pembayaran telah diverifikasi.'
+								)
+							}, 3000);
+							location.reload();
 						},
 						onPending: function(result) {
-							changeResult('pending', result);
-							console.log(result.status_message);
-							console.log(result);
+							location.reload()
 						},
 						onError: function(result) {
-							changeResult('error', result);
-							console.log(result.status_message);
-							console.log(result);
+							location.reload()
+						},
+						onClose: function() {
+							location.reload()
 						}
 					});
 				}

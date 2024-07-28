@@ -14,3 +14,12 @@ if (!function_exists('format_rupiah')) {
 		return 'Rp ' . number_format($number, 0, ',', '.');
 	}
 }
+
+function isAuth()
+{
+	$ci = get_instance();
+	$auth = $ci->session->userdata('id');
+	if (!$auth) {
+		return redirect('/');
+	}
+}

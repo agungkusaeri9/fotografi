@@ -54,7 +54,8 @@ class M_booking extends CI_Model
 				'total_harga' => $total_harga,
 				'status_transaksi' => 'Menunggu Pembayaran',
 				'data' => NULL,
-				'keterangan' => 'Pelunasan'
+				'keterangan' => 'Pelunasan',
+				'kode' => date('Ymd') . rand(1000, 9999) . rand(100, 9999)
 			]);
 		} else {
 			$total_harga = $data['total_bayar'] / 2;

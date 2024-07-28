@@ -25,7 +25,7 @@ class M_transaksi extends CI_Model
 
 	function find($id_transaction)
 	{
-		$this->db->select('transaction.*, users.name as user_name, users.email as user_email');
+		$this->db->select('transaction.*, users.name as user_name, users.email as user_email, users.hp as user_hp, booking.id_booking as id_booking');
 		$this->db->from('transaction');
 		$this->db->where('id_transaction', $id_transaction);
 		$this->db->join('booking', 'booking.id_booking=transaction.id_booking');
@@ -64,5 +64,16 @@ class M_transaksi extends CI_Model
 		}
 		$this->db->order_by('transaction.id_transaction', 'DESC');
 		return $this->db->get()->result();
+	}
+
+	function jumlahBayar($id_booking)
+	{
+		$this->db->select('COUNT(*) as count');
+		$this->db->from('transaction');
+		$this->db->where('status_transaksi', 'settlement');
+		$this->db->where('id_booking', $id_booking);
+		$query = $this->db->get();
+		$result = $query->row();
+		return $result->count;
 	}
 }

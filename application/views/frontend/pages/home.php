@@ -31,7 +31,7 @@
 				<ul class="features-items">
 					<li class="feature-item">
 						<div class="left-icon">
-							<img src="<?= base_url() ?>/assets/frontend/images/features-first-icon.png" alt="First One">
+							<img src="<?= base_url() ?>/assets/frontend/images/jam-pasir.png" alt="First One">
 						</div>
 						<div class="right-content">
 							<h4>Years of Experience</h4>
@@ -40,7 +40,7 @@
 					</li>
 					<li class="feature-item">
 						<div class="left-icon">
-							<img src="<?= base_url() ?>/assets/frontend/images/features-first-icon.png" alt="second one">
+							<img src="<?= base_url() ?>/assets/frontend/images/toolbox.png" alt="second one">
 						</div>
 						<div class="right-content">
 							<h4>Professional Equipment</h4>
@@ -49,7 +49,7 @@
 					</li>
 					<li class="feature-item">
 						<div class="left-icon">
-							<img src="<?= base_url() ?>/assets/frontend/images/features-first-icon.png" alt="third gym training">
+							<img src="<?= base_url() ?>/assets/frontend/images/kamera.png" alt="third gym training">
 						</div>
 						<div class="right-content">
 							<h4>High-Quality Photo Editing</h4>
@@ -62,7 +62,7 @@
 				<ul class="features-items">
 					<li class="feature-item">
 						<div class="left-icon">
-							<img src="<?= base_url() ?>/assets/frontend/images/features-first-icon.png" alt="fourth muscle">
+							<img src="<?= base_url() ?>/assets/frontend/images/berdiskusi.png" alt="fourth muscle">
 						</div>
 						<div class="right-content">
 							<h4>Friendly and Professional Service</h4>
@@ -71,7 +71,7 @@
 					</li>
 					<li class="feature-item">
 						<div class="left-icon">
-							<img src="<?= base_url() ?>/assets/frontend/images/features-first-icon.png" alt="training fifth">
+							<img src="<?= base_url() ?>/assets/frontend/images/koper.png" alt="training fifth">
 						</div>
 						<div class="right-content">
 							<h4>Comprehensive Portfolio</h4>
@@ -80,7 +80,7 @@
 					</li>
 					<li class="feature-item">
 						<div class="left-icon">
-							<img src="<?= base_url() ?>/assets/frontend/images/features-first-icon.png" alt="gym training">
+							<img src="<?= base_url() ?>/assets/frontend/images/tag.png" alt="gym training">
 						</div>
 						<div class="right-content">
 							<h4>Affordable Pricing</h4>

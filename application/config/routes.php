@@ -147,7 +147,9 @@ $route['paket/(:any)'] = 'PageController/detail_paket/$1';
 $route['proses-booking'] = 'PageController/proses_booking';
 
 $route['customer/booking'] = 'Customer/Booking/index';
+$route['customer/booking/cek'] = 'Customer/Booking/cek';
 $route['customer/booking/token'] = 'Customer/Booking/token';
 $route['customer/booking/notification'] = 'Customer/Booking/notification';
 $route['customer/proses-booking'] = 'Customer/Booking/proses_booking';
 $route['customer/booking/detail/(:num)'] = 'Customer/Booking/detail/$1';
+$route['customer/rating/store'] = 'Customer/Rating/store';

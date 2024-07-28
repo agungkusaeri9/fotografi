@@ -8,6 +8,7 @@ class PageController extends CI_Controller
 		parent::__construct();
 		$this->load->model('PaketModel', 'paket');
 		$this->load->model('M_booking', 'booking');
+		$this->load->model('M_rating', 'rating');
 	}
 	public function index()
 	{
@@ -37,7 +38,8 @@ class PageController extends CI_Controller
 		$data = [
 			'content' => 'frontend/pages/detail_paket',
 			'paket' => $paket,
-			'judul' => $paket->packet_name
+			'judul' => $paket->packet_name,
+			'data_rating' => $this->rating->getByPaketId($id)
 		];
 		$this->load->view('frontend/app', $data);
 	}
