@@ -22,7 +22,7 @@
 						foreach ($data_jadwal as $booking) : ?>
 							<tr>
 								<td><?= $i++ ?></td>
-								<td><?= format_tanggal($booking->tanggal_booking, 'd F Y H:i:s') ?></td>
+								<td><?= format_tanggal($booking->tanggal, 'd F Y H:i:s') ?></td>
 								<td><?= $booking->kode_booking ?></td>
 								<td><?= $booking->name ?></td>
 								<td><?= $booking->hp ?></td>

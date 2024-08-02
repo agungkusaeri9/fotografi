@@ -32,26 +32,31 @@
 									<td>Rp <?= number_format($booking->total_bayar, 0, ',', '.') ?></td>
 									<td>
 										<?php if ($booking->status_booking == 0) : ?>
-											<span class="badge badge-warning">Menunggu Pembayaran</span>
+											<span class="badge badge-warning">Menunggu Konfirmasi</span>
 										<?php elseif ($booking->status_booking == 1) : ?>
-											<span class="badge badge-primary">Terkonfirmasi</span>
+											<span class="badge badge-info">Menunggu Pembayaran Down Payment</span>
 										<?php elseif ($booking->status_booking == 2) : ?>
-											<span class="badge badge-success">Selesai</span>
+											<span class="badge badge-info">Menunggu Pembayaran Pelunasan</span>
 										<?php elseif ($booking->status_booking == 3) : ?>
-											<span class="badge badge-danger">Dibatalkan</span>
+											<span class="badge badge-primary">Dipesan</span>
 										<?php elseif ($booking->status_booking == 4) : ?>
-											<span class="badge badge-info">Menunggu Pelunasan</span>
+											<span class="badge badge-success">Selesai</span>
+										<?php elseif ($booking->status_booking == 4) : ?>
+											<span class="badge badge-danger">Batal</span>
 										<?php endif; ?>
 									</td>
 									<td>
-
 										<?php
 										$rating = $this->rating->status($booking->id_booking);
 										?>
-										<?php if ($booking->status_booking == 2 && $rating == 0) : ?>
+										<?php if ($booking->status_booking == 4 && $rating == 0) : ?>
 											<a href="javascript:void(0)" class="btn btn-sm btn-warning btnRating" data-id="<?= $booking->id_booking ?>">Beri Rating</a>
 										<?php endif; ?>
-										<a href="<?= base_url('customer/booking/detail/')  . $booking->id_booking ?>" class="btn btn-sm btn-info">Pembayaran</a>
+										<?php if ($booking->status_booking == 1 || $booking->status_booking == 2) : ?>
+											<a href="<?= base_url('customer/booking/detail/')  . $booking->id_booking ?>" class="btn btn-sm btn-info">Pembayaran</a>
+										<?php else : ?>
+											<a href="javascript:void(0)" class="btn btn-sm btn-info disabled">Pembayaran</a>
+										<?php endif; ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

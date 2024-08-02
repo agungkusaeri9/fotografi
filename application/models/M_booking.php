@@ -22,7 +22,7 @@ class M_booking extends CI_Model
 		$this->db->from('booking');
 		$this->db->join('users', 'users.id = booking.id_user', 'inner');
 		$this->db->join('packets', 'packets.id_packet = booking.id_packet', 'inner');
-		$this->db->where('booking.status_booking', 1);
+		$this->db->where('booking.status_booking', 3);
 		$this->db->order_by('tanggal_booking', 'DESC');
 
 		$query = $this->db->get();
@@ -113,6 +113,7 @@ class M_booking extends CI_Model
 	{
 		$this->db->from('booking');
 		$this->db->where('DATE(tanggal)', format_tanggal($tanggal, 'Y-m-d'));
+		$this->db->where_in('status_booking', [1, 2, 3]);
 		return $this->db->count_all_results();
 	}
 

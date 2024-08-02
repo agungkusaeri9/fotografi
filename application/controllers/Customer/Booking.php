@@ -141,23 +141,22 @@ class Booking extends CI_Controller
 			// cek juga apakah ada pembayaran lagi selain dari ini yang belum dibayar
 			$cekJumlahBayar = $this->transaksi->jumlahBayar($booking->id_booking);
 			if ($cekJumlahBayar == 0) {
-				// set status booking jadi Menunggu Pelunasan
+				// set status booking jadi Dipesan
 				$this->booking->update($booking->id_booking, [
-					'status_booking' => 4
+					'status_booking' => 3
 				]);
 			} else if ($cekJumlahBayar == 1) {
 				// jika tidak ada, set status booking menjadi selesai
 				$this->booking->update($booking->id_booking, [
-					'status_booking' => 2
+					'status_booking' => 4
 				]);
 			}
 		} else if ($cekJumlahPembayaran == 1) {
 			// jika tidak ada, set status booking menjadi selesai
 			$this->booking->update($booking->id_booking, [
-				'status_booking' => 2
+				'status_booking' => 3
 			]);
 		}
-
 
 		// echo json_encode($order_id);
 		$this->transaksi->update($transaksi->id_transaction, [

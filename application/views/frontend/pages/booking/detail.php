@@ -40,15 +40,17 @@
 						<span>Status</span>
 						<span class="font-weight-bold">
 							<?php if ($booking->status_booking == 0) : ?>
-								<span class="badge badge-warning">Menunggu Pembayaran</span>
+								<span class="badge badge-warning">Menunggu Konfirmasi</span>
 							<?php elseif ($booking->status_booking == 1) : ?>
-								<span class="badge badge-primary">Terkonfirmasi</span>
+								<span class="badge badge-info">Menunggu Pembayaran Down Payment</span>
 							<?php elseif ($booking->status_booking == 2) : ?>
-								<span class="badge badge-success">Selesai</span>
+								<span class="badge badge-info">Menunggu Pembayaran Pelunasan</span>
 							<?php elseif ($booking->status_booking == 3) : ?>
-								<span class="badge badge-danger">Dibatalkan</span>
+								<span class="badge badge-primary">Dipesan</span>
 							<?php elseif ($booking->status_booking == 4) : ?>
-								<span class="badge badge-info">Menunggu Pelunasan</span>
+								<span class="badge badge-success">Selesai</span>
+							<?php elseif ($booking->status_booking == 4) : ?>
+								<span class="badge badge-danger">Batal</span>
 							<?php endif; ?>
 						</span>
 					</li>
@@ -91,7 +93,7 @@
 										<?php endif; ?>
 									</td>
 									<td>
-										<?php if ($transaksi->status_transaksi === 'Menunggu Pembayaran') : ?>
+										<?php if ($transaksi->status_transaksi === 'Menunggu Pembayaran' && ($booking->status_booking == 1 || $booking->status_booking == 2)) : ?>
 											<a href="javascript:void(0)" data-id="<?= $transaksi->id_transaction ?>" data-snaptoken="<?= $transaksi->snap_token ?>" class="btn btn-sm btn-info btnBayar">Bayar Sekarang</a>
 										<?php else : ?>
 											<a href="javascript:void(0)" class="btn btn-sm btn-info disabled" disabled>Bayar Sekarang</a>

@@ -37,13 +37,15 @@ class Booking extends MY_Controller
 		$this->load->view('layouts/app', $data);
 	}
 
-	public function setSelesai($id_booking)
+	public function setStatus($id_booking)
 	{
 		if (!$id_booking) {
 			redirect('admin/booking');
 		}
+
+		$status_booking = $this->input->post('status_booking');
 		$this->booking->update($id_booking, [
-			'status_booking' => 2
+			'status_booking' => $status_booking
 		]);
 
 		redirect('admin/booking');

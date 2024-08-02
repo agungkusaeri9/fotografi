@@ -18,6 +18,12 @@
 	<script src="<?= base_url() ?>/assets/js/jquery-3.7.1.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+	<style>
+		.header-area .main-nav .nav li:last-child a {
+			background-color: white !important;
+			color: black !important;
+		}
+	</style>
 </head>
 
 <body>

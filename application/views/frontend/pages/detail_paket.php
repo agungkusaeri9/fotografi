@@ -18,21 +18,27 @@
 					<div class="card text-left mt-5">
 						<div class="card-body">
 							<h5 class="card-title mb-4">Penilaian</h5>
-							<?php foreach ($data_rating as $rating) : ?>
-								<h6 class="card-subtitle mb-2 text-muted">By: <span id="username"><?= $rating->name ?></span></h6>
-								<p class="card-text">
-									<span class="star-rating">
-										<span class="full-star">&#9733;</span>
-										<span class="full-star">&#9733;</span>
-										<span class="full-star">&#9733;</span>
-										<span class="empty-star">&#9733;</span>
-										<span class="empty-star">&#9733;</span>
-									</span>
-								</p>
-								<p class="card-text" id="review"><?= $rating->keterangan ?></p>
-								<p class="card-text"><small class="text-muted" id="review-time">Reviewed on: <?= format_tanggal($rating->tanggal_rating, 'd-m-Y H:i:s') . ' WIB' ?></small></p>
-								<hr>
-							<?php endforeach; ?>
+							<?php if (!empty($data_rating)) : ?>
+								<?php foreach ($data_rating as $rating) : ?>
+									<h6 class="card-subtitle mb-2 text-muted">By: <span id="username"><?= $rating->name ?></span></h6>
+									<p class="card-text">
+										<span class="star-rating">
+											<span class="full-star">&#9733;</span>
+											<span class="full-star">&#9733;</span>
+											<span class="full-star">&#9733;</span>
+											<span class="empty-star">&#9733;</span>
+											<span class="empty-star">&#9733;</span>
+										</span>
+									</p>
+									<p class="card-text" id="review"><?= $rating->keterangan ?></p>
+									<p class="card-text"><small class="text-muted" id="review-time">Reviewed on: <?= format_tanggal($rating->tanggal_rating, 'd-m-Y H:i:s') . ' WIB' ?></small></p>
+									<hr>
+								<?php endforeach; ?>
+							<?php else : ?>
+								<div class="text-center">
+									<p>Belum Ada Rating!</p>
+								</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>

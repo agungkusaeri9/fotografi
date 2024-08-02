@@ -98,7 +98,7 @@ $route['admin/gambar-paket/hapus/(:num)'] = 'Admin/GambarPaket/hapus/$1';
 // booking
 $route['admin/booking'] = 'Admin/Booking/index';
 $route['admin/booking/detail/(:num)'] = 'Admin/Booking/detail/$1';
-$route['admin/booking/set-selesai/(:num)'] = 'Admin/Booking/setSelesai/$1';
+$route['admin/booking/set-status/(:num)'] = 'Admin/Booking/setStatus/$1';
 $route['admin/booking/hapus/(:num)'] = 'Admin/Booking/hapus/$1';
 
 

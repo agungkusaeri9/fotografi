@@ -38,13 +38,17 @@
 						<span>Status</span>
 						<span class="font-weight-bold">
 							<?php if ($booking->status_booking == 0) : ?>
-								<span class="badge badge-warning">Menunggu Pembayaran</span>
+								<span class="badge badge-warning">Menunggu Konfirmasi</span>
 							<?php elseif ($booking->status_booking == 1) : ?>
-								<span class="badge badge-primary">Terkonfirmasi</span>
+								<span class="badge badge-primary">Menunggu Pembayaran Down Payment</span>
 							<?php elseif ($booking->status_booking == 2) : ?>
-								<span class="badge badge-success">Selesai</span>
+								<span class="badge badge-primary">Menunggu Pembayaran Pelunasan</span>
 							<?php elseif ($booking->status_booking == 3) : ?>
-								<span class="badge badge-danger">Dibatalkan</span>
+								<span class="badge badge-primary">Dipesan</span>
+							<?php elseif ($booking->status_booking == 4) : ?>
+								<span class="badge badge-success">Selesai</span>
+							<?php elseif ($booking->status_booking == 4) : ?>
+								<span class="badge badge-danger">Batal</span>
 							<?php endif; ?>
 						</span>
 					</li>
@@ -81,7 +85,13 @@
 								<td><?= $i++ ?></td>
 								<td><?= $transaksi->keterangan ?></td>
 								<td><?= format_rupiah($transaksi->total_harga) ?></td>
-								<td><?= $transaksi->status_transaksi ?></td>
+								<td>
+									<?php if ($transaksi->status_transaksi === 'settlement') : ?>
+										Lunas
+									<?php else : ?>
+										<?= $transaksi->status_transaksi ?>
+									<?php endif; ?>
+								</td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>
