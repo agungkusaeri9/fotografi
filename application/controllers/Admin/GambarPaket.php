@@ -13,7 +13,7 @@ class GambarPaket extends MY_Controller
 
 	public function index()
 	{
-		$this->session->set_userdata(['menu_active' => 'kategori', 'sub_menu_active' => '']);
+		$this->session->set_userdata(['menu_active' => 'Gambar Paket', 'sub_menu_active' => '']);
 		$menu = $this->MenusModel->getMenu();
 		$id_packet = $this->input->get('id_packet');
 		$data = [
